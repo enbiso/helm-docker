@@ -1,4 +1,4 @@
-# kube-deploy
+# helm-docker
 Minimal Kubenetes deploying docker container
  - kubectl
  - helm
