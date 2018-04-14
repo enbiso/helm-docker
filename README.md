@@ -4,7 +4,9 @@ Minimal Kubenetes deploying docker container
  - helm
 
 Environmental variables
- - KUBECONFIG_BASE64 - base64 encoded content of the kube config file (optional). This will auto initiate helm and kubectl
+ - `KUBECONFIG_BASE64`
+   
+   base64 encoded content of the kube config file (optional). This will auto initiate helm and kubectl
 
 ## Usage
 
