@@ -1,5 +1,6 @@
-# kube-deploy
-Minimal Kubenetes deploying docker container
+# helm docker
+
+Minimal Kubenetes deploying docker container using 
  - kubectl
  - helm
 
