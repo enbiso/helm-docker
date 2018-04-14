@@ -10,6 +10,8 @@ LABEL org.label-schema.vcs-ref=$VCS_REF \
       org.label-schema.vcs-url="https://github.com/enbiso/helm-docker" \
       org.label-schema.build-date=$BUILD_DATE
 
+COPY ./init.sh /init.sh
+
 RUN     apk add --update ca-certificates \
     &&  apk add --update -t deps curl \
     &&  apk add bash \
@@ -17,9 +19,9 @@ RUN     apk add --update ca-certificates \
     &&  curl -L https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl -o /usr/local/bin/kubectl \
     &&  chmod +x /usr/local/bin/kubectl \
     &&  curl -L https://raw.githubusercontent.com/kubernetes/helm/master/scripts/get -o ./get_helm.sh \
+    &&  chmod +x /init.sh \
     &&  chmod +x ./get_helm.sh \
     &&  ./get_helm.sh
     
-ENTRYPOINT mkdir -p /root/.kube \       
-    &&  if [ ! -z ${KUBECONFIG_BASE64} ]; then echo ${KUBECONFIG_BASE64} | base64 -d > /root/.kube/config; kubectl cluster-info; helm init --client-only; fi \
+ENTRYPOINT /init.sh \
     &&  /bin/bash
