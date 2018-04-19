@@ -11,3 +11,4 @@ echo "Initializing Kubecli and Helm"
 echo $KUBECONFIG_BASE64 | base64 -d > /root/.kube/config; 
 kubectl cluster-info; 
 helm init --client-only; 
+export INITIALIZED=yes

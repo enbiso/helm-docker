@@ -1,4 +1,7 @@
 #!/bin/bash
+if [ -z $INITIALIZED ]; then
+    source /scripts/init.sh
+fi
 TEMP=`getopt -o n:g:h::s:: --long name:,namespace:,hosts::,set:: -n helm.sh -- "$@"`
 if [[ $? -ne 0 ]]; then
     exit 2
