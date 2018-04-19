@@ -1,5 +1,5 @@
 #!/bin/bash
-if [ -z $INITIALIZED ]; then
+if [ -z $KUBE_INITIALIZED ]; then
     source /scripts/init.sh
 fi
 TEMP=`getopt -o n:g:h::s:: --long name:,namespace:,hosts::,set:: -n helm.sh -- "$@"`

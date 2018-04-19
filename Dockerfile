@@ -21,3 +21,6 @@ RUN     apk add --update ca-certificates \
     &&  curl -L https://raw.githubusercontent.com/kubernetes/helm/master/scripts/get -o /scripts/get_helm.sh \
     &&  chmod +x /scripts/*.sh \
     &&  /scripts/get_helm.sh
+
+ENTRYPOINT /scripts/init.sh \
+    &&  /bin/bash
