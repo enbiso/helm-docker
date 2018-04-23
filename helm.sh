@@ -25,7 +25,7 @@ case $key in
     ;;
 esac
 done
-deploys=$(helm ls | grep $DEPLOY_NAME | wc -l)
+deploys=$(helm ls | grep "${DEPLOY_NAME} " | wc -l)
 if [ ${deploys} -eq 0 ]; then    
     echo "Installing ${DEPLOY_NAME} on ${DEPLOY_NAMESPACE} with ${DEPLOY_SETTINGS}"
     helm install --name=${DEPLOY_NAME} . --namespace=${DEPLOY_NAMESPACE} ${DEPLOY_SETTINGS}
