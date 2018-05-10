@@ -24,5 +24,5 @@ if [ ${deploys} -eq 0 ]; then
     helm install --name=${DEPLOY_NAME} . --namespace=${DEPLOY_NAMESPACE} ${DEPLOY_SETTINGS}
 else 
     echo "Upgrading ${DEPLOY_NAME} on ${DEPLOY_NAMESPACE} with ${DEPLOY_SETTINGS}"
-    helm upgrade ${DEPLOY_NAME} . --namespace=${DEPLOY_NAMESPACE} ${DEPLOY_SETTINGS}
+    helm upgrade ${DEPLOY_NAME} . --namespace=${DEPLOY_NAMESPACE} ${DEPLOY_SETTINGS} --recreate-pods
 fi
